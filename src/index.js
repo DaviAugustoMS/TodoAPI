@@ -1,8 +1,11 @@
 const express = require("express");
+const cors = require("cors");
+
 const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 const customers = [];
@@ -123,4 +126,4 @@ app.delete("/todos/:id", (req, res) => {
   return res.status(204).json(customer);
 });
 
-app.listen(3031, () => console.log("Connected"));
+module.exports = app;
